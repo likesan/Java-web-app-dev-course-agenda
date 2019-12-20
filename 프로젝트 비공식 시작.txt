@@ -1,0 +1,26 @@
+AWS 
+	Amazon EC2 provides you with 750 
+	 The free tier for these services provides you with a monthly allotment of hours for the first 12 month
+	plus 750 hours usage of Windows (any combination of t2.micro and t1.micro instances).
+	헐.. 15분만 인터벌로 1시간에 3번만 해도, 3시간을 사용한 것으로 쳐진다고... 뭐야 이거?
+		https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/free-tier-limits.html#hourly-limits
+	When you start an Amazon EC2 instance, **you must select an Amazon Machine Image (AMI) that is eligible for the free tier**
+	 Because of licensing restrictions, some AMIs are not eligible for the free tier
+	AMIs that are eligible for the free tier are marked in the Amazon EC2 Launch Wizard as Free tier eligible.
+	plus 750 hours of a Windows t2.micro or t1.micro instance each month for the first 12 months.
+	
+	그러니까 한달에 750시간 날라가면 망한다는거지?
+		후..
+	키
+		https://drive.google.com/drive/folders/1i4ynaQiLvACd1IKDeR_2xdmS-oO1ZGQ8
+		폴더에도 저장했음 
+			경로 : D:\2월자바SW개발자과정\4조 프로젝트
+			파일명 : miniproject4th
+			암호명 : 44444444
+JfreeChart 적용하기
+	다운받기
+	Add Jars 하기
+		JCommon 최신버전
+		JfreeChart 최신버전
+	JFreechart 에서 제공하는 install.pdf를 읽으면서 가이드를 섭렵하기
+아이피, 이름, 비밀번호, 이메일
