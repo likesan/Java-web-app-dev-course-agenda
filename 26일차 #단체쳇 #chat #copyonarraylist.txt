@@ -1,0 +1,41 @@
+내가 물어볼게 뮤ㅓ였더라?
+	노트뷱
+	재시험 볼때 나오는 문제들은 뮤엇인가? 시험 봤던 것들 다시 체크 제대로 해야할 것 같은디... 으매
+		이중배열
+		메서드 get set이용하여 배열에 저장
+Scope 문제 해결법 3종 세트 정리
+	call by reference
+	static
+		public static int cnt = 0; 이라고 선언 먼저 해준다.
+	innerClass
+타이핑 느린 분들
+	타자연습 숙제
+	http://tadaktadak.co.kr/taja/en_sentence.html
+팀 미션
+	팀 챗
+		메인 스레드 > 소켓 스레드 하나 더 만들기
+			연결지어주기 위함
+		StaticResource.Connectors.add(sock);
+			주소값을 지정해주는 것?
+		서버는 채팅을 보지 않는다.
+	하나에 하나만의 기능을 넣는다? 동시성에러 제거 위함, 안그러면 뜨레드 - synchronized 를 앞에다 써주자. class에 
+		List의 제네릭을 <DataOutputStream>으로 바꾸는 이유 ?
+			꺼내자마자 아웃하기 위함?
+			socket 값을 ArrayList에 Generic 으로 지정해준 경우는, DataOutputStream으로 값을 꺼내고 싶은 경우에는, 전부 socket.dos.으로 socket을 선행적으로 불러내야만 하는 제약이 있었다. 허나 이를 해결하기 위한 방법으로 
+			대신에 sock의 기능들은 포기하게 됨
+				그러면?
+		for each? > 질문
+	그 다음 만들어야할게?
+		전체적인 윤곽
+			서버 / 리스트 / Dataoutputstream / inputStream
+			아직 GUI로 TextArea에 나타나도록 만든건 안됐음
+scrll 작성법? 
+	textArea와 공유해서는 안된다.
+
+학생관리 프로그램 ( 단체 ) 
+	신규정보 입력
+	학생 목록 출력
+		뭐가 이렇게 복잡하지?
+		이해가 좀 안된다기 보다는 뭔가 어려운데?
+	학생 정보 삭제
+	프로그램 종료

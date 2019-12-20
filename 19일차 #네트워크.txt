@@ -1,0 +1,104 @@
+hashmap 의 키값을 id로 해보자? - studentManager를...
+	value는 student로? new student(블라블라가 되어야겠지?)
+	리스트형도 만들어야할테고
+	맵? map List<Student> 를 넣어서 해야겠지? put이라는 것을 넣어서 했었네?
+	그러려면 어디서부터 **수정**해나가야하지?
+	List 선언 따위는 다 메인에서 이루어지는건가?
+	그리고 얘네들을 하나씩 추가해나갈 수 있도록 만들어야겠지?
+	그런데 뭔가 막힌다. 어디다가 Hashmap을 써줘야하는거지?
+	이 Map이라는 건 어떤 거지? 
+	약간의 배열들, entry 를 만들어내는 것 아닌가, key값과 value를 생성하는거지. 얘를 어디다 만들어 놔야하는거지? method 안에다? manager 안에다 해놔야하는게아닐까?
+	그 다음에 해야할 것들은? 뭐지?
+		뭘 어떻게 파악해나가야하지?
+		키 값과 아닌 애들을 추가하도록 method를 형성해놔야겠지?
+		Map<Integer, Student> stds 라는 뜻은
+			key값 integer에 따라 Student 형 배열을 하나씩 엔트리에 저장해놓는 상황을 말함. 다시말해 key값 하나하나로 Student형 배열이 엔트리에 저장되도록 만든 상황
+			호출할 때는 integer, 로 불러내도록 만들어야겠지?
+	강사님은 어떻게 이렇게 쉽게 가능하게한건지?
+		음...
+		정말 있는 녀석들만 쓰신건가?
+		이상한 군더더기들 없이?
+	얘를 점검하려면 어떻게 해야하나? 쭉 한번 훑어보기?
+	hashmap에 의해 어떻게 변경된다 체크해봐야할듯
+소켓, thread, gui
+	이번주 시험 둘
+	이 후 프로젝트 착수
+		우리가 직접 공부해보는 타이밍
+		
+	네트워크 만들어보는 프로그램
+	네트워크 만들다보면 답답해서 threads를 만들게 된다고?
+	그 후에 gui를 입히게 될거라고..
+	네트워크 상식
+		용어 정리
+			Ip address란?
+				컴퓨터마다 부여된 **주소**
+					각각 pc 구분 가능하게 함, Port까지 알아야 각 프로그램으로 반응을 보내줄 수 있음, 거기서 decapsulation 일어남
+				버전은 ipv4 는 나왔지만, ipv6로 바꾸자는 말이 나왔었음. 하지만 여전히 **ipv4**가 주류
+				모든 사물에 ip가 갖는 형태로 변할 것이라고.. 유비쿼터스? = IOT 시대
+				192.168.20.3 강사님
+				192.168.20.15 나
+				192.168.20.14 재호
+				192.168.20.13 지은
+			Port number?
+				한대의 컴퓨터 상에서 **서비스를 구분짓는** 고유 번호
+				**Encapsulation** 이라는 과정을 통해 송신을 신청한 데이터가 보내짐. (Hello라는 문자, ip어드레스, sequence 넘버 등등이 붙어있음)
+				그러면 **decapsulation** 함.
+					나에게 오는게 맞는 정보인가? ( 랜카드에서 체크 : Encapsulation 된 자료들을 다 뜯어서봄 )
+					그 다음 어떤 프로그램으로 수신을 받아야하는지 정해놓은 번호 
+						프로그램마다 정해진 포트번호가 있다고 한다.
+							만약 얘네가 서로 겹친다면 어떤 일이 일어날까? 충돌과 함께, 사용할 수 없다고 뜸.
+							하지만 먼저 점유하는 쪽이 실행됨
+			Socket이란 무엇인가?
+				논리적 단말기? 네트워크 프로그램이 연결 정보를 확보하기 위한?
+					서로간에 정보를 주고 받기 위한 상황, 폰?과 같이 통신장비의 역할을 해주는 것?
+					소켓은 연결정보를 확보하는 데까지만 도움을 준다. 다시말해 정보를 주고 받는건 다른 것이 해야한다. 연결정보 확보 까지만 돕는다는 것이 중요
+						데이터 주고받는건, **Stream** 이라는 **논리적 통로**가 필요
+					rj45? 꼽히는 순간?
+			Stream이란 무엇인가?
+				데이터를 주고 받는 논리적 통로나 다리라고 생각할 수 있음, Socket만으로는 서로간의 연결정보를 확보하는 것, 연결을 해주는 것만 할 수 있으나, 실제로 서로 데이터를 주고 받게 하게 만들기 위해서는 이 Stream이 필요하다고. 
+					보내고 싶은 경우 
+						OutPutStream os = sock.getOutputStream 을 보내는 쪽 소켓에서 열어야한다.
+						Java 내에서, OutputStream 만으로는 할 수 있는 기능들이 한정적이다. 그러므로, DataOutputStream을 추가적으로 생성, DataOutputStream to1Player = New DataOutputStream(os)와 같이 설정해주면, 문자를 보내거나 그림을 보내는 기능 등을 사용할 수 있게된다.
+						받는 쪽에서는 InputStream is = sock.getInputStream으로 inputStreaming을 활성화 시켜놔야한다.
+						inputStream 역시, InputStream만으로는 사용할 수 있는 메소드가 매우 한정적이므로,   ![Pasted image](https://dynalist.io/u/IqxRhggg7sz-sm4GqIEwA8sf) DataInputStream player1input = new DataInputStream(is); 업그레이드를 하여 사용하는 것이 더 많은 기능을 자유롭게 쓸 수 있다는 것.
+					무언가를 받고 싶은 경우
+						InputStream을 열어놔야한다.
+							예를 들자면  ![Pasted image](https://dynalist.io/u/_hUkqnGBhORsxeEVUGK49-DG) 
+							그리고 보내는 쪽에서도  ![Pasted image](https://dynalist.io/u/UE2lQyo3wKYNZBM0WQn6Fq4I)  위와 같이 메세지를 입력해야한다. InputStream 만으로는 그 기능이 많지 않으므로, DataInputStream을 꼭 사용하도록 하자.
+				Stream은 소켓만이 아니라, 데이터를 주고 받을 수 있는 장치라면 누구든지 보낼 수 있다? HDD도 가능(다리 놓을 수 있음) 입출력 장치, 스캐너, 프린터 장비, 그 모든 곳에서 가능하다.
+					라이브러리를 만들어서 이런 기능을 아예 만들어낼 수도 있다고 
+				input-output Stream vs writer-reader Stream
+					Input-output Stream
+						1byte Stream 
+						바이너리 정보면 1바이트
+						그림 파일도 가능
+							그림파일이 1바이트로 되어있다니 왜지?
+					Writer(inputstream) / Reader(in)
+						2byte Stream
+						텍스트문서 글자
+						절대적인건 아님 ( 통제만 잘할 수 있다면 괜찮다고 )
+						깔끔하게 만들기 위함
+				방향은 램에 의해 정해짐
+					들어오면 input Stream
+						데이터를 입력받는 통로? 받을 때 여길 열어야함, 받거나 여는걸 모두 하고 싶은 경우 in-output stream을 모두 열어야함
+					내 기기에서 나가면 outPutStream 
+						데이터를 출력하는 통로, 뭔가를 보내고자 할 때는 outputstream이 열려야함
+			Server Socket은 무엇인가?
+				소켓? 핸드폰 단말기?일반 소켓으로는 안된다.
+				다대일 통신을 위한 장치다. 네이버 웹서버와 같이.
+				서버 전용 소켓이 있어야 다대일 통신이 가능해진다. 부재중 전화
+				일반 소켓을 계속 만들어주는 놈이구나. 들어오는 입력양에 맞춰서 말이지.
+				전화 교환원과 비슷하다고~
+			Server Client
+			네트워크 프로그램
+			Socket > Stream 
+				소켓이 없으면 데이터를 주거나 받을 수 없고, 열리지도 않음.
+			서버 만들기
+				WellKnownPort
+					1-1024 까지의 포트들은 유명서비스 업체들이 이미 점유했으므로 다른 번호를 쓰는게 좋음
+					trycatch를 써야함, throws Exception
+			로또 만들기
+				set을 써야함
+					아니 set이 뭐였는지 왜 기억이 안날까? 내 머리가 복습을 안했기에 완벽히 깨끗하게 초기화 된듯?
+오늘 뭔가 복잡하고 어렵게 느껴지진 않았다. 머릿속이 쉽게 정리되는 느낌이 들었던 것은, 위빠사나라는 책의 내용에서 얻은 '고통을 지우는 방법' 덕분이었다랄까? 
+

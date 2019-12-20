@@ -1,0 +1,108 @@
+프로젝트 이번 주 중
+	7일
+선택지 만들기용
+	체크 박스는 다지 선다형
+	라디오버튼은 주로 2지 선다형
+		 ![Pasted image](https://dynalist.io/u/sqEHScrpQWnFLuG_ecTukCbw) 
+		둘중에 하나만 선택하게 만들고 싶은 경우
+			private ButtonGroup = new buttonGroup();
+				같은 그룹에 에드 되어 있는 애들은 하나만 선택되게 만드는 기능(버튼끼리 Grouping)
+				선언부 ![Pasted image](https://dynalist.io/u/7dDPAK9m4B9F20mVDrOMDttq) 
+				 ![Pasted image](https://dynalist.io/u/wmeM-LUduS2KdGjiWeqC8XZt) 
+		토글버튼
+			JtoggleButton tButton1 = new JToggleButton();
+				여러개 중에 하나만 선택되는 버튼
+				설문조사 기능들에 좋을 듯
+	토글버튼
+GridBagConstraints
+	사이즈 / 여백 조정 가능(Components 사이 갭 조정 가능)
+	동적 그리드 : 1행 1열 시작
+	 ![Pasted image](https://dynalist.io/u/XfthbNpMq3hym_4Nxp7DWcL8) 
+	밀려나감 본래 중앙에 중앙에서 조금씩 조금씩 나옴
+		 ![Pasted image](https://dynalist.io/u/XQj6vRZd2s_ZxkEwBDBEDAG0) 
+	gbc.inset = New InsetS(25,0,25,0);
+		좌우 간격을 설정해주는 명령어
+	GridBagConstaints는 사이즈값도 줄 수 있음. 정말 중요한 특징. 좋음
+		tb.setPreferredSize(new Dimension(200,50));
+		 ![Pasted image](https://dynalist.io/u/fOtkOScZ_mzwOhx6gGDWVi8Y) 
+폰트 삽입하기
+	#폰트 #font #gui
+	 ![Pasted image](https://dynalist.io/u/nJf2inqASsZSalRKZndAcxyo) 
+GUI - 이벤트
+	Component / Listener / Event Handler
+		Component 
+			버튼 , 화면 , 단추 등과 같은 GUI Component들을 의미한다. 우리는 이 Component들에 이벤트를 발생 시키고자한다. ( 다른 링크로 연결 또는 다른 프로그램 실행 등등 )
+			Listener
+				Component에서 발생한 사용자의 입력을 Event Handler로 전달해주는 매개자적 기능.
+				Component Initializer 안에서, this.buttonEven.AddActionListener(); 라고 입력한다.
+					다양하게 나타날 수 있는 사용자의 입력 형태(Keyboard를 누르거나 Mouse로 클릭하는 등)의 입력신호에 따라 다른 설정을 지정해줄 수 있음. 이는 Ctrl + Space를 누르면 다양한 기능을 확인해볼 수 있다.
+			Event Handler
+				이벤트 핸들러 ( 이벤트를 발생시키는 존재 )
+					1. ActionListener **구현하기** 'implements' > 하지만 interface(개발자에게 강요하는 문법), 
+					2. 메서드 생성부 안에서 ctrl + space를 입력하면 쓸 수 있는 기능?이 나타남, 그중 actionPerformed(ActionEvent e) 누르기
+					3. component initialize 부분에서, this.buttonEvent.addActionListener(new 내가 정한 메소드명()); 호출
+					 ![Pasted image](https://dynalist.io/u/x0KsQP3fvDwDRwIhu9U_9Vas) 
+	Listener ( 신호 감시자 )
+		Event Source? 를 할당해줘야하는 상대?
+		Listener = Supervisor 감시자
+			종류가 여러개로 나뉘어진다.
+				마우스 감지
+				휠 감지
+				등등
+			Component Button 에 발생되는 신호를 감지하는 존재
+			EventHandler 에게 신호가 발생 되었다는 것을 알려준다.
+				어느 좌표 / 어떤 버튼 / 인지 구체적으로 Handler에게 알려줌
+				실제 이벤트가 발생되게 하는 존재는 Event Source라는 놈이다.
+			.ActionListener = 행동 자체를 알아차리는 Listener, no matter it's keyboard input or mouseinput.
+		이 EventHandler를 만들어줄 때 쓸 수 있는 방법은 다음과 같다.
+			Call by ref
+				외부 클래스에서 implements 로 interface를 상속해오는 방법
+				그리고 그 안에 
+			이너클래스
+				 ![Pasted image](https://dynalist.io/u/QiBiyOjnHBFET-l6X48jDzzX) , 
+			static
+				Static으로 handler 설정해보기
+					Static으로 설정하고 싶은 멤버 클래스에 Public Static으로 해놔야한다. 그래야 스코프가 닿는다.
+				private static
+					언제나 조건 가능하다는 조건 성립
+					그러나 어디서나는 아니다.
+						인스턴스를 공유하는 녀석들, 해당 static에 달려있는 인스턴스만 가능해진다.
+					static 키워드 붙은 애들은 클래스 멤버필드
+				public static
+					전역 변수와 똑같은 기능함
+						다시말해 다른 클래스와 인스턴스에서 다 접근이 가능하다.
+			Call by reference 방식
+				장점
+					메모리효율도 높아짐
+						쓰고 사라지기 때문
+						이너클래스에 너무 길게 명시/선언 하게 되는 경우, 보다 깔끔하게 짤 수 있음
+				단점?
+					만약 수정해야되는 인자가 많아지면 일일히 다 만들어줘야함(융통성 X)
+			InnerClass 방식(가장 일반적으로 많이 씀)
+				 ![Pasted image](https://dynalist.io/u/FKMXW84fLPCljqmGNX5ub3fm) 
+				장점
+					짧은 코딩인 경우, 클래스 내부에서 하게 될 때 좋음
+					scope문제가 일어나지 않음, 해당 클래스 내부에서 사용하게 되므로
+						this 로도 파훼가 되었던 것같은데 scope문제가 발생하더라도?
+				단점
+					긴 코딩을 클래스 내부에서 하게 되는 경우, main클래스가 너무 복잡하게버리게 만들 수 있음.  
+				원리  
+					익명클래스
+						안에 있는 멤버필드를 쓰기 위함.
+레이아웃 특징들 파악 중요
+	그 사실 자체가 유용
+	BorderLayout / Gridlayout / Flowlaytout / GridBagConstraints
+		BorderLayout
+			this.add(Component_name, BorderLayout.EAST); 따위로 쓸 수 있음, 그런데 좀 헷갈림
+			그런데 어디서 헷갈리는지 정확히 알 수 없기때문에 내가 계속 써봐야할 필요성이있음
+		GridLayout
+			SetLayoutmanager(new GridLayout(3,0)  
+			괄호 맨처음은 row값으로서 위아래로 자르거나 층을 내고 싶을 때 사용해쥬면 된다
+			괄호 뒷 자리은 colums자리로 세로값 다시말해 괄호로 잘라나가고 싶은 경우 사용할 수 있다.
+			한 층에 깔끔하게 레이아웃을 설정하거나 넣어놓으  수 있다.
+		setLayoutmanager(new flowlayout(flowlayout.LEAD); 등으로 표현할 수 있다. 자동 정렬을 깔끔하게 하는데에 매우 유익한 명령어
+		gbc
+		버튼 또는 사이즈도 저장할 슈 있으나 조그  제한적
+깜지 : 논술형
+	만점 맞은 문제 X
+	만점이 아닌 문제는 다 써야됨

@@ -1,0 +1,89 @@
+복습 : 감잡기
+	타이틀바 설정은 , 생성자내에 super() 메서드를 활용하자.
+		super("제목")
+	패널에는 종류가 많다.
+		gridLayout은 글자 쓰는 순서대로 들어간다.
+	코드를 정리하는 나만의 스타일일 하나 만들어지는 것이 중요하다.
+	GUI는 수많은 패널들의 조합이다.
+몸풀기 : 게시판에 글쓰기 모양
+	gridlayout은 격자무늬로 공평하게만 잡힘
+	this.setLayout(new FlowLayout(FlowLayout.RIGHT));
+	 this.bt.setPreferredSize(new Dimension(200,50)); 를 활용하면 Dimension을 설정할 수 있다고?
+	review
+		setSize () = NullLayout 전용이라고!!..? 그럼 아... 고의적으로 FlowLayout 과 같이 Layout Manager 를 사용해서 한 것으로는 안된다고
+		Scrollpanel 을 넣으면, 자동으로 연동해준다고 한다.
+		자동 줄 바뀜 기능?
+	Swing 개발자의 의도
+		그래픽 전용 쓰레드를 써라
+			왜? Main에서 인스턴스를 호출하여 하지만,.... 특정 기능들은 Main에서 호출하면 잘 안된다고 ?
+				이를테면 Focus 기능, (request focus) 같은 기능은 그래픽 전용 쓰레드를 사용하지 않으면 잘 구현되지 않음.
+					outfocus ?
+			SwingUtilities.invokeLater(new Thread( { public void run() { 기능 } );
+				디자이너 / 퍼블리셔들은 아예 암기하는 구문, 쓰레드를 만들어 쓰는 놈
+				Theme 기능도 사용할 수 있게 된다고. = Look and Feel 기능? lnf
+					윈도우에 내장된 님버스가 제일 이쁘다고?
+				하지만 얘네는 네이티브 어플리케이션들을 위함인지라, Local UI 에는 별 관심이 떨어지고 있는 상황
+	flow가 아니라 border로 만들면 제목이 길어진다?
+	자동 줄 바뀜기능 찾기 in textfield
+	
+시험
+	안내 : 
+		연산자의 우선순위 : 괄호로 묶기
+			하지만 네모칸 치는 것들 사이에서 ![Pasted image](https://dynalist.io/u/2CJC__asepmlG_eaXwSs5WS_) 
+			DatainputStream import 뒤섞임
+				Class의 Full name을 써줘야된다
+					java.io.dataInputStream dis; 라고 선언을 아예 해줘야함 - Full name
+					얘도 아예 클래스 안에 변수 선언만으로 두고 나중에 호출을 통해 배울 수 있다
+			Package 명이 달라도 
+				같은 클래스 값을 사용할 수 있다.
+				하지만 아예 패키지 명이 같아버리면 문제가 된다.
+			Overriding 규칙? 
+				상속을 받는 녀석은 큰 정보은닉도가 더 커야한다. 작은 놈은 불가능하다?
+				받는 녀석이 private 이기 힘들다? 아 큰놈을 받기 어려우므로? public을 받는 것?
+			예외전가?
+				**예외들 간에도 상속 관계가 있다.**
+					Exception > inturrupted exception
+				예외 처리도 가능하지만 전가도 가능하다
+					전가 : throws Exception 2번
+						허나 본래는 main에서 해결해줘야하지만, Main에서 조차 throws Exception을 또 할 수 있음. 이 말은, 프로그램 
+						callee method
+						caller method
+					Java.Lang.*.;
+						import 안해도 괜찮아진 것?
+						이미 수많은 standard lib중 하나
+					Exception 도 클래스, 다형성을 물려받음.
+			NCS는 실전에서 쓰지 않는 문제들이 출제된
+		두 문제에 대한 힌트
+			한글을 inputstreaming 하기?
+				알아야할 것
+					한글을 2바이트짜리 inputstream인 reader로 읽어들여야한다. 그러므로 1바이트만을 빨아들이는 inputstream으로는 빨아들일 수 없다. 
+					이를 해결하기 위해서는 BufferedReader 라는 기능을 사용해야한다.
+					BufferedReader br = new BufferedReader(new InputStreamReader(fis));
+					ASKii 1바이트 공간만 사용
+						그림은 왜 1바이트로만 불러들일 수 있지? Askii 코드로 된 알파벳과, 그림은 1바이트로 불러들이는게 가능하지만
+						한글은 왜? 2바이트로만 표현이 가능한가?
+					UTF8 = 3바이트다..
+				**BufferedWriter bw = new BufferedWriter(new OuputStreamwriter());) {}**
+					하면 데이터베이스를 쓰지 않고도 DISK 에 저장이 가능하다
+	Thread의 Synchronized 동기화기법
+		하나의 쓰레드가 해당 기능을 하는 동안, 다른 쓰레드가 해당 기능을 할  수 없다.
+		atm 프로그램 
+		**장점 : 쓰레드로부터 안전한 메서드가 된다. Thread Safe 된다.**
+		**단점 : performance 를 잃어버린다... 다른 메서드들은 접근하지 못하게 되므로, 이를 우리는 cost를 지불한다고 표현한다.**
+		시사점 : 동기화 코드를 잘 써야한다. 퍼포먼스를 잃던지 또는 안전성을 확보할 수 있다.
+		Vector 와 ArrayList의 차이점 #vetor #arraylist
+			Vector는 안정적이다. Thread Safe하다. 다시말해 느리며, 다른 쓰레드가 동시에 들어와 작동할 수 없다.
+				왜?
+			Arraylist는 Thread Unsafe하다. Performance가 높아 좋다만,
+				왜? 
+Map < Key , Value > 
+	Key는 Set이라고 하는 단위를 갖는다? 그리고 이 Set은 순서가 없다? 대신에 중복을 허용하지 않는다. set이 같아지면 value값도 막 다 섞일 수 있으므로
+ArrayList 
+	중복 허용한다
+	순서 기억 한다.
+	대신에 알아서 한칸씩 채워진다.
+이중배열
+	배열들을 갖고 있는 배열.
+	int[][] arr = new int[2][3];
+		처음 2칸짜리 배열이 각각 3칸짜리 배열의 주소를 갖고 있음.
+아 오늘 너무 힘들...었지만 그래도 어제보다는 성장 했으니 즐겁다. 어제보다는 잘했잖아? 괜찮아. :) 잘했

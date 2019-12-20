@@ -1,0 +1,46 @@
+프로젝트 목요일 시작 가능성 높음
+이때쯤 취직 관련 면담 시작됨
+	얼마만큼의 연봉을 원하는가?
+	어떤 직장을 원하는지
+설문조사 
+	"질문 좀 " : 어려움 호소 / 파악하기 위함임
+프로젝트는 공부다.
+	마음편하게 공부라고 생각하자
+	파이널 프로젝트
+ Nimbus Look & Feel![Pasted image](https://dynalist.io/u/kPdcFmrW9oiHT13Gsd8c1pB9) 
+수학 class = math class
+렌더링?
+	custom component를 만들 수 있음
+	다양한 component 들의 기능들을 서로 섞어 쓸 수 있는 기능?
+radius
+쥐 아이콘
+	png = 투명도가 적용 가능
+		체크무늬 인애들
+	jpg = 안됨
+MouseAdapter 모든 메서드를 갖고 있지만, 추상메서드가 아니다.
+	다시 말해, Adapter가 갖고 있는 기능 중 하나의 메서드만을 overriding 해서 사용할 수 있다.
+Handler는 클래스로 만든다?
+	특정 인터페이스를 상속받은 클래스만 Handler로서 올 수 있다?
+	왜?
+callee -- caller
+	throws exception 을 callee에 걸면 그 오류값을 caller 에게 전가시킴
+메시지를 보내면?
+다른 쓰레드로 연결해서 뿌려줘야함?
+문어발?
+ConcurrentModificationError
+	동시성 에러
+	ArrayList를 돌아다니는, 다음 배열을 찾는 iterator에서 스탭이 꼬여버림. 
+채팅방 Textfield 적힌 값이 TextArea에 출력되도록 만드는 기능
+	setText() 는, 추가적인 기능으로, 뭔가를 지워버리는 기능을 가지고 있음. 원래 있던 값을 초기화 시켜버리는 기능이 있다. 다시말해, 뭔가를 입력해야하는 값, 다시 입력을 해야만 사용이 가능한 component 속에서는 사용이 불가능하다. 다시말해, 출력기능만을 갖고 있기로하여, inputEnable(False)로 되어있으므로, 이는 입력 기능이 아예 사라져버린 상황, 이런 상태에서 setText는 어울리지 않음.
+	그러므로 apprend()가 가장 적합한 상황이라고. 
+		신기한게, 영어 문법처럼, 상황마다 아주 잘 어울리는 그런 문법들이 존재한다. 그런 문법들을 패턴처럼 이해하는 모습이 바로 **언어를 익히는 것**과 아주 유사한게 아닌가 하는 깨달음이 든다.
+	그리고 한줄씩 라인이 break 되어야하므로, +'\n'을 삽입해주자.
+	 ![Pasted image](https://dynalist.io/u/A7DPuEuDTq4wEBycT48YGTNI) 
+채팅창 TextArea에 아무것도 입력할 수 없게 만드는 기능
+	TextArea.setEditable(false); 를 생성자에 넣어주자
+	 ![Pasted image](https://dynalist.io/u/5w5JMyus3wqQbjhUtZxeecZp) 
+
+다 만들어봤는데 문제가 있었다.
+	허나 알고봤더니 Socket Initializer 생성자를 호출하지 않았던 것....ㅠ.
+	늘 정말 중요하다 생각했던 것들 한번씩 다시 짜보는 노력들이 필요하지 않을까? 그게 진짜 코딩이고 진짜 공부가 되지 않을까 싶다. 특히 배열쪽 공부를 해야하는데 음마...
+	강사님이 gui layout manager 4가지 잘 알아놓으라고 이야기했음. 잘 익혀놔야함.
